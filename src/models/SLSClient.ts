@@ -64,10 +64,6 @@ class SLSClient extends Request {
     }
     this.headers.set('Content-Length', body.length.toString())
 
-    if (params && Object.keys(params).length > 0) {
-      this.headers.set('x-log-bodyrawsize', body.length.toString())
-    }
-
     // Authorization
     this.headers.set('Authorization', this._getAuthorization(method, buildUrl(url, params)))
   }

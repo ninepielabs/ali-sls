@@ -5,6 +5,7 @@ import Headers from './Headers'
 const defaultHeaders = {
   'x-log-apiversion': '0.6.0',
   'x-log-signaturemethod': 'hmac-sha1',
+  'x-log-bodyrawsize': '0',
   'Content-Type': 'application/json',
 }
 
