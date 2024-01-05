@@ -22,23 +22,23 @@ class SLSClient extends Request {
     this.opts = opts
   }
 
-  get(url: string, config: MethodRequestConfig) {
-    return this.request({
+  get<T = any>(url: string, config: MethodRequestConfig) {
+    return this.request<T>({
       method: HttpMethod.GET,
       url,
       ...config,
     })
   }
 
-  post(url: string, config: MethodRequestConfig) {
-    return this.request({
+  post<T = any>(url: string, config: MethodRequestConfig) {
+    return this.request<T>({
       method: HttpMethod.POST,
       url,
       ...config,
     })
   }
 
-  request<T = any>(config: RequestConfig) {
+  protected request<T = any>(config: RequestConfig) {
     this._resetHeaders()
     this._setDynamicHeaders(config)
     return super.request<T>(config)
