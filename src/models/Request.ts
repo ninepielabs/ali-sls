@@ -19,7 +19,7 @@ class Request {
     this.instance = axios.create(config)
   }
 
-  async request<T = any>(config: RequestConfig) {
+  protected async request<T = any>(config: RequestConfig) {
     const { url, method, ...restConfig } = config
 
     const headers = this.headers.values
