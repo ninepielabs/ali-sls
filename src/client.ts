@@ -19,6 +19,10 @@ const createClient = (opts: ClientOpts) => {
 }
 
 export const initClient = (opts: ClientOpts) => {
+  if (globalThis.__NINEPIELABS_SLS_CLIENT__) {
+    console.warn('SLSClient has been initialized')
+    return globalThis.__NINEPIELABS_SLS_CLIENT__
+  }
   return createClient(opts)
 }
 
