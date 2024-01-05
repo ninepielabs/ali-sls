@@ -1,0 +1,45 @@
+{
+  "name": "@ninepielabs/ali-sls",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@github.com:ninepielabs/ali-sls.git",
+  "author": {
+    "name": "xuerzong",
+    "email": "xuerzong@gmail.com"
+  },
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js",
+      "types": "./index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "npm run build:scripts && npm run build:types",
+    "build:scripts": "node scripts/build.js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
+  },
+  "dependencies": {
+    "@ninepielabs/constants": "^0.0.2",
+    "axios": "^1.6.4",
+    "crypto-js": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.2.1",
+    "@types/node": "^20.10.6",
+    "esbuild": "^0.19.11",
+    "fast-glob": "^3.3.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "prettier --write"
+    ]
+  }
+}
