@@ -1,5 +1,7 @@
 # ali-sls
 
+Warning: This is a work-in-progress and not the finished product.
+
 ## How to use
 
 ```bash
