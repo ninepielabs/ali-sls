@@ -5,13 +5,13 @@ Warning: This is a work-in-progress and not the finished product.
 ## How to use
 
 ```bash
-yarn add @ninepielabs/ali-sls
+yarn add @ninepie/ali-sls
 ```
 
 ```typescript
-import { initClient, client } from '@ninepielabs/ali-sls'
+import { createClient } from '@ninepie/ali-sls'
 
-initClient({
+const client = createClient({
   endpoint: <your-endpoint>
   project: <your-project>
   accessKeyId: process.env.ALI_ACCESS_KEY_ID

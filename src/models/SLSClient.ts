@@ -1,3 +1,4 @@
+import crypto from 'node:crypto'
 import cryptoJs from 'crypto-js'
 import { HttpMethod } from '@ninepielabs/constants'
 import Request from '../models/Request'
@@ -22,7 +23,7 @@ class SLSClient extends Request {
     this.opts = opts
   }
 
-  get<T = any>(url: string, config: MethodRequestConfig) {
+  get<T = any>(url: string, config?: MethodRequestConfig) {
     return this.request<T>({
       method: HttpMethod.GET,
       url,
@@ -30,7 +31,7 @@ class SLSClient extends Request {
     })
   }
 
-  post<T = any>(url: string, config: MethodRequestConfig) {
+  post<T = any>(url: string, config?: MethodRequestConfig) {
     return this.request<T>({
       method: HttpMethod.POST,
       url,
@@ -60,7 +61,10 @@ class SLSClient extends Request {
     const body = data ? JSON.stringify(data) : ''
 
     if (body) {
-      this.headers.set('Content-MD5', cryptoJs.MD5(body).toString(cryptoJs.enc.Hex).toUpperCase())
+      this.headers.set(
+        'Content-MD5',
+        crypto.createHash('md5').update(body).digest('hex').toUpperCase()
+      )
     }
     this.headers.set('Content-Length', body.length.toString())
 
@@ -82,8 +86,8 @@ class SLSClient extends Request {
 
     const { accessKeyId, accessKeySecret } = this.opts
 
-    const token = cryptoJs.HmacSHA1(message, accessKeySecret).toString(cryptoJs.enc.Base64)
-
+    // const token = cryptoJs.HmacSHA1(message, accessKeySecret).toString(cryptoJs.enc.Base64)
+    const token = crypto.createHmac('sha1', accessKeySecret).update(message).digest('base64')
     return `LOG ${accessKeyId}:${token}`
   }
 }
