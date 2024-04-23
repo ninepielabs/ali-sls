@@ -33,7 +33,9 @@ class Request {
         ...restConfig,
       })
       .then((res) => res.data)
-      .catch(() => null)
+      .catch((e) => {
+        throw e
+      })
   }
 }
 
