@@ -1,6 +1,6 @@
 {
-  "name": "@ninepielabs/ali-sls",
-  "version": "0.0.2",
+  "name": "@ninepie/ali-sls",
+  "version": "0.0.1",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -13,6 +13,7 @@
   },
   "files": [
     "README.md",
+    "package.json",
     "dist"
   ],
   "repository": "git@github.com:ninepielabs/ali-sls.git",
