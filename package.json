@@ -1,14 +1,14 @@
 {
   "name": "@ninepie/ali-sls",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./index.mjs",
-      "require": "./index.js",
-      "types": "./index.d.ts"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     }
   },
   "files": [
@@ -35,14 +35,15 @@
   },
   "dependencies": {
     "@ninepielabs/constants": "^0.0.2",
-    "axios": "^1.6.4",
-    "crypto-js": "^4.2.0"
+    "axios": "^1.6.4"
+  },
+  "peerDependencies": {
+    "axios": "^1.6.4"
   },
   "devDependencies": {
     "@types/crypto-js": "^4.2.1",
     "@types/node": "^20.10.6",
     "esbuild": "^0.19.11",
-    "fast-glob": "^3.3.2",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
     "prettier": "^3.1.1",

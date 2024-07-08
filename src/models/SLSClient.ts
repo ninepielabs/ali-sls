@@ -1,5 +1,4 @@
 import crypto from 'node:crypto'
-import cryptoJs from 'crypto-js'
 import { HttpMethod } from '@ninepielabs/constants'
 import Request from '../models/Request'
 import type { RequestConfig } from '../types'
